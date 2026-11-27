@@ -1,11 +1,7 @@
 """
 Compliance Reports & Export Module.
-
-Scope:
-- Executive summary report generation
-- Audit trail and discrepancy breakdowns
-- Actionable corrective recommendations
-- PDF report rendering and export formats
 """
 
-__all__ = []
+from server.reports.pdf_generator import generate_compliance_pdf_report
+
+__all__ = ["generate_compliance_pdf_report"]

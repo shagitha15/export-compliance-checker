@@ -1,6 +1,15 @@
 """
 Database Repositories Layer.
-Abstracts data access logic and queries from business services.
 """
 
-__all__ = []
+from server.repositories.document_repository import (
+    DocumentRepository,
+    store_extracted_document,
+    fetch_extracted_documents,
+)
+
+__all__ = [
+    "DocumentRepository",
+    "store_extracted_document",
+    "fetch_extracted_documents",
+]

@@ -1,11 +1,16 @@
 """
 Document Intelligence Module.
-
-Scope:
-- Customs document type classification (Invoice, Packing List, Shipping Bill, CoO, PO)
-- Schema-guided field extraction
-- Structured JSON generation
-- Missing mandatory field detection
 """
 
-__all__ = []
+from server.document_intelligence.schemas import DOCUMENT_SCHEMAS
+from server.document_intelligence.prompts import build_extraction_prompt, format_extracted_text
+from server.document_intelligence.extractor import extract_document_data
+from server.document_intelligence.classifier import classify_document_type
+
+__all__ = [
+    "DOCUMENT_SCHEMAS",
+    "build_extraction_prompt",
+    "format_extracted_text",
+    "extract_document_data",
+    "classify_document_type",
+]

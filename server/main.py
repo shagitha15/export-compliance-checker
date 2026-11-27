@@ -28,7 +28,12 @@ async def lifespan(app: FastAPI):
         settings.SERVER_ENV.value,
         settings.SERVER_PORT,
     )
+    from server.rules.scheduler import get_rule_scheduler
+
+    scheduler = get_rule_scheduler()
+    scheduler.start()
     yield
+    await scheduler.stop()
     logger.info("Application shutting down...")
 
 

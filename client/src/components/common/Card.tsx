@@ -4,13 +4,30 @@ interface CardProps {
   title: string;
   children: React.ReactNode;
   subtitle?: string;
+  style?: React.CSSProperties;
 }
 
-export const Card: React.FC<CardProps> = ({ title, subtitle, children }) => {
+export const Card: React.FC<CardProps> = ({ title, subtitle, children, style }) => {
   return (
-    <div style={{ backgroundColor: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '20px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)', marginBottom: '16px' }}>
-      <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', color: '#0f172a' }}>{title}</h3>
-      {subtitle && <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: '#64748b' }}>{subtitle}</p>}
+    <div
+      style={{
+        backgroundColor: 'var(--bg-surface)',
+        border: '1px solid var(--border-blush)',
+        borderRadius: 'var(--radius-md)',
+        padding: '22px',
+        boxShadow: 'var(--shadow-sm)',
+        marginBottom: '16px',
+        ...style,
+      }}
+    >
+      <h3 style={{ margin: '0 0 4px 0', fontSize: '16px', fontWeight: 700, color: 'var(--text-main)' }}>
+        {title}
+      </h3>
+      {subtitle && (
+        <p style={{ margin: '0 0 16px 0', fontSize: '13px', color: 'var(--text-muted)' }}>
+          {subtitle}
+        </p>
+      )}
       <div>{children}</div>
     </div>
   );

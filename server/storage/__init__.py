@@ -1,6 +1,8 @@
-"""
-File Storage Management Layer.
-Handles local file persistence, cloud bucket storage (S3/GCS), and temporary document file lifecycles.
-"""
+"""Private Supabase Storage Operations for Organization-Scoped PDF Documents & Reports."""
 
-__all__ = []
+from server.storage.document_storage import (
+    DocumentStorageService,
+    build_org_storage_path,
+)
+
+__all__ = ["DocumentStorageService", "build_org_storage_path"]

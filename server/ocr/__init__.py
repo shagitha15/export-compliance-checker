@@ -1,11 +1,7 @@
 """
-Optical Character Recognition (OCR) Module.
-
-Scope:
-- PyMuPDF / Tesseract text extraction
-- High-accuracy table detection and extraction
-- OCR confidence score calculation and quality metrics
-- Image pre-processing (deskew, binarization)
+OCR Module.
 """
 
-__all__ = []
+from server.ocr.extractor import extract_text_from_pdf
+
+__all__ = ["extract_text_from_pdf"]

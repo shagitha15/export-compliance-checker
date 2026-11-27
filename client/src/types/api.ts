@@ -8,11 +8,18 @@ export interface ApiResponse<T = unknown> {
   };
 }
 
+export interface HealthComponents {
+  database: boolean;
+  vector_db: boolean;
+  ai_service?: boolean;
+}
+
 export interface HealthStatus {
   status: 'healthy' | 'degraded' | 'unhealthy';
   version: string;
   environment: string;
   timestamp: string;
-  database: boolean;
-  vectorDb: boolean;
+  components?: HealthComponents;
+  database?: boolean;
+  vectorDb?: boolean;
 }

@@ -1,6 +1,7 @@
 import { ApiResponse } from '../types/api';
+import { authenticatedFetch } from './authService';
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api/v1';
 
 export async function apiClient<T>(
   endpoint: string,
@@ -13,7 +14,7 @@ export async function apiClient<T>(
     Accept: 'application/json',
   };
 
-  const response = await fetch(url, {
+  const response = await authenticatedFetch(url, {
     ...options,
     headers: {
       ...defaultHeaders,
